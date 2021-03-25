@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 extension View {
-    func rotationAnimation(isRotating: Binding<Bool>, lapTime: Binding<Double>) -> some View {
-        self.modifier(RotationAnimation(lapTime: lapTime, isRotating: isRotating))
+    func rotationAnimation(isRotating: Binding<Bool>, period: Binding<Double>) -> some View {
+        self.modifier(RotationAnimation(lapTime: period, isRotating: isRotating))
     }
 }
 
@@ -37,10 +37,13 @@ struct RotationView<Content>: View where Content: View {
         content
             .rotationEffect(.init(degrees: degrees))
             .onReceive(timer, perform: { _ in
-                if isRotating {
+                if isRotating && lapTime != 0 {
                     withAnimation(.linear(duration: 0.1)) {
-                        self.degrees = degrees+36/(lapTime<=0 ? 0.01 : lapTime)
+                        self.degrees = (degrees+36/lapTime)
+//                        if self.degrees > 360 { self.degrees }
                     }
+                    self.degrees = self.degrees.remainder(dividingBy: 360.0)
+                    print(self.degrees)
                 }
             })
     }
