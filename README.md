@@ -16,7 +16,4 @@ You can easily set any values you want and the model will be correclty updating.
 <b>0:</b> Stops spinning  
 
 #### Here is some examples of changing the <code>period</code> and <code>isRotating</code>
-https://user-images.githubusercontent.com/35888414/112550223-19c53280-8dd0-11eb-84cc-3719afc47232.mov
-
-
-
+![RPReplay_Final1616709745-2](https://user-images.githubusercontent.com/35888414/112550521-8e986c80-8dd0-11eb-81c5-80803f4f7f59.gif)
