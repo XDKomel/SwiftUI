@@ -40,7 +40,6 @@ struct RotationView<Content>: View where Content: View {
                 if isRotating && lapTime != 0 {
                     withAnimation(.linear(duration: 0.1)) {
                         self.degrees = (degrees+36/lapTime)
-//                        if self.degrees > 360 { self.degrees }
                     }
                     self.degrees = self.degrees.remainder(dividingBy: 360.0)
                     print(self.degrees)
